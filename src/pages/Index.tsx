@@ -11,15 +11,15 @@ import Icon from '@/components/ui/icon';
 export default function Index() {
   const [bandwidth, setBandwidth] = useState(100);
   const bandwidthTiers = [
-    { min: 100, max: 500, price: 1500 },
-    { min: 500, max: 1000, price: 5000 },
-    { min: 1000, max: 10000, price: 8500 }
+    { min: 100, max: 500, price: 150000 },
+    { min: 500, max: 1000, price: 350000 },
+    { min: 1000, max: 10000, price: 700000 }
   ];
   
   const calculatePrice = (mbps: number) => {
-    if (mbps <= 500) return 1500;
-    if (mbps <= 1000) return 5000;
-    return 8500;
+    if (mbps <= 500) return 150000;
+    if (mbps <= 1000) return 350000;
+    return 700000;
   };
 
   const scrollToSection = (id: string) => {
@@ -106,7 +106,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">1 500 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-3xl font-bold">150 000 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
                   <div className="text-sm text-muted-foreground mt-1">100 Мбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
@@ -141,7 +141,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">5 000 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-3xl font-bold">350 000 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
                   <div className="text-sm text-muted-foreground mt-1">500 Мбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
@@ -173,7 +173,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">8 500 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-3xl font-bold">700 000 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
                   <div className="text-sm text-muted-foreground mt-1">1 Гбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
