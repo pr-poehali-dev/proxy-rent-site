@@ -9,8 +9,18 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 export default function Index() {
-  const [trafficAmount, setTrafficAmount] = useState(10);
-  const pricePerGb = 35;
+  const [bandwidth, setBandwidth] = useState(100);
+  const bandwidthTiers = [
+    { min: 100, max: 500, price: 1500 },
+    { min: 500, max: 1000, price: 5000 },
+    { min: 1000, max: 10000, price: 8500 }
+  ];
+  
+  const calculatePrice = (mbps: number) => {
+    if (mbps <= 500) return 1500;
+    if (mbps <= 1000) return 5000;
+    return 8500;
+  };
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -41,11 +51,11 @@ export default function Index() {
             <div className="animate-fade-in">
               <Badge className="mb-4">Резидентные прокси России</Badge>
               <h1 className="text-5xl font-bold mb-6 leading-tight">
-                Платите только за <span className="text-primary">трафик</span>
+                Платите только за <span className="text-primary">полосу</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Доступ к российским резидентным IP-адресам с оплатой по фактическому использованию. 
-                Никаких скрытых комиссий, только честная цена за каждый гигабайт.
+                Доступ к российским резидентным IP-адресам с оплатой за полосу пропускания. 
+                Выбирайте скорость от 100 Мбит/с, никаких скрытых комиссий.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" onClick={() => scrollToSection('pricing')}>
@@ -85,7 +95,7 @@ export default function Index() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Прозрачные тарифы</h2>
-            <p className="text-lg text-muted-foreground">Оплата только за реальное потребление трафика</p>
+            <p className="text-lg text-muted-foreground">Фиксированная цена за скорость канала</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -96,16 +106,17 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">{pricePerGb} ₽<span className="text-base font-normal text-muted-foreground">/ГБ</span></div>
+                  <div className="text-3xl font-bold">1 500 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-sm text-muted-foreground mt-1">100 Мбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
-                    <span className="text-sm">От 1 ГБ трафика</span>
+                    <span className="text-sm">Канал 100 Мбит/с</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
-                    <span className="text-sm">Безлимитные запросы</span>
+                    <span className="text-sm">Безлимитный трафик</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
@@ -130,17 +141,17 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">{pricePerGb - 5} ₽<span className="text-base font-normal text-muted-foreground">/ГБ</span></div>
-                  <div className="text-sm text-muted-foreground">от 100 ГБ</div>
+                  <div className="text-3xl font-bold">5 000 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-sm text-muted-foreground mt-1">500 Мбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
-                    <span className="text-sm">От 100 ГБ трафика</span>
+                    <span className="text-sm">Канал 500 Мбит/с</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
-                    <span className="text-sm">Приоритетная скорость</span>
+                    <span className="text-sm">Безлимитный трафик</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
@@ -162,13 +173,13 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">{pricePerGb - 10} ₽<span className="text-base font-normal text-muted-foreground">/ГБ</span></div>
-                  <div className="text-sm text-muted-foreground">от 1000 ГБ</div>
+                  <div className="text-3xl font-bold">8 500 ₽<span className="text-base font-normal text-muted-foreground">/мес</span></div>
+                  <div className="text-sm text-muted-foreground mt-1">1 Гбит/с</div>
                 </div>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
-                    <span className="text-sm">От 1000 ГБ трафика</span>
+                    <span className="text-sm">Канал 1 Гбит/с</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Icon name="Check" size={20} className="text-primary mt-0.5" />
@@ -193,24 +204,25 @@ export default function Index() {
               <h3 className="text-2xl font-bold mb-4 text-center">Калькулятор стоимости</h3>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="traffic">Трафик в месяц: {trafficAmount} ГБ</Label>
+                  <Label htmlFor="bandwidth">Полоса пропускания: {bandwidth} Мбит/с</Label>
                   <input 
                     type="range" 
-                    id="traffic"
-                    min="1" 
+                    id="bandwidth"
+                    min="100" 
                     max="1000" 
-                    value={trafficAmount}
-                    onChange={(e) => setTrafficAmount(Number(e.target.value))}
+                    step="50"
+                    value={bandwidth}
+                    onChange={(e) => setBandwidth(Number(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-2"
                   />
                 </div>
                 <div className="bg-white p-6 rounded-lg text-center">
                   <div className="text-sm text-muted-foreground mb-2">Стоимость в месяц</div>
                   <div className="text-4xl font-bold text-primary">
-                    {trafficAmount <= 100 ? trafficAmount * pricePerGb : trafficAmount <= 1000 ? trafficAmount * (pricePerGb - 5) : trafficAmount * (pricePerGb - 10)} ₽
+                    {calculatePrice(bandwidth).toLocaleString('ru-RU')} ₽
                   </div>
                   <div className="text-sm text-muted-foreground mt-2">
-                    {trafficAmount <= 100 ? `${pricePerGb} ₽/ГБ` : trafficAmount <= 1000 ? `${pricePerGb - 5} ₽/ГБ` : `${pricePerGb - 10} ₽/ГБ`}
+                    {bandwidth >= 1000 ? '1 Гбит/с' : `${bandwidth} Мбит/с`}
                   </div>
                 </div>
               </div>
@@ -415,9 +427,8 @@ print(f"Proxy: {proxy}")`}</pre>
                 Как работает оплата за трафик?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Вы платите только за реально использованный трафик. Пополняете баланс на любую сумму, 
-                и с него списывается стоимость по тарифу за каждый гигабайт переданных данных. 
-                Неиспользованные средства остаются на балансе.
+                Вы выбираете полосу пропускания (от 100 Мбит/с) и платите фиксированную месячную плату. 
+                Трафик не ограничен — используйте столько, сколько нужно в рамках выбранной скорости канала.
               </AccordionContent>
             </AccordionItem>
 
@@ -437,8 +448,8 @@ print(f"Proxy: {proxy}")`}</pre>
                 Есть ли ограничения по количеству запросов?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Количество запросов не ограничено на всех тарифах. Вы платите только за объём переданных данных. 
-                Единственное ограничение — fair use policy для предотвращения злоупотреблений.
+                Количество запросов не ограничено на всех тарифах. Единственное ограничение — скорость канала, 
+                которую вы выбрали в тарифе. Трафик безлимитный, справедливое использование приветствуется.
               </AccordionContent>
             </AccordionItem>
 
