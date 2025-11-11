@@ -326,7 +326,121 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="api" className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Примеры использования</h2>
+            <p className="text-lg text-muted-foreground">Наши прокси решают широкий спектр задач</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="Search" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">Парсинг данных</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Сбор информации с сайтов без блокировок. Мониторинг цен конкурентов, анализ контента, 
+                  агрегация данных с десятков источников одновременно.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="ShoppingCart" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">E-commerce</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Автоматизация покупок лимитированных товаров, мониторинг наличия, 
+                  тестирование региональных версий магазинов и ценовых предложений.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="TrendingUp" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">SEO и аналитика</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Проверка позиций сайта в разных регионах, анализ выдачи поисковиков, 
+                  мониторинг репутации бренда и конкурентная разведка.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="Users" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">SMM и маркетинг</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Управление множеством аккаунтов соцсетей, автопостинг контента, 
+                  таргетированная реклама по регионам, аналитика аудитории.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="Globe" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">Тестирование сайтов</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Проверка работы веб-сервисов из разных регионов России, 
+                  тестирование геолокации, нагрузочное тестирование с распределённых точек.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="Lock" size={24} className="text-primary" />
+                </div>
+                <CardTitle className="text-xl">Безопасность</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm">
+                  Анонимный доступ к ресурсам, защита личных данных при работе с публичными API, 
+                  обход региональных ограничений для корпоративных задач.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 bg-gradient-to-r from-blue-50 to-white rounded-lg p-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Не нашли свою задачу?</h3>
+              <p className="text-muted-foreground mb-6">
+                Наши технические специалисты помогут подобрать оптимальное решение для вашего проекта. 
+                Расскажите о задаче — предложим лучший вариант настройки прокси.
+              </p>
+              <Button size="lg" onClick={() => scrollToSection('contacts')}>
+                Получить консультацию
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="api" className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">API документация</h2>
